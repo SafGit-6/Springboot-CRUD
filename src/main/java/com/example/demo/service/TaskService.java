@@ -35,6 +35,7 @@ public class TaskService {
     public Task updateTask(int id, Task updatedTask) {
         return repo.findById(id).map(task -> {
             task.setName(updatedTask.getName());
+            task.setDesp(updatedTask.getDesp());
             return repo.save(task);
         }).orElse(null);
     }

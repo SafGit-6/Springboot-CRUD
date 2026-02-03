@@ -16,6 +16,10 @@ public class TaskController {
         this.service = service;
     }
 
+    @GetMapping("/health")
+    public String checkServer(){
+        return "server is running on port 8081";
+    }
     @PostMapping
     public Task createTask(@RequestBody Task task) {
         return service.createTask(task);
